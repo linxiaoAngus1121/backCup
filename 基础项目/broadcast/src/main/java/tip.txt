@@ -1,0 +1,7 @@
+MyReceiver是实现静态注册，是开机广播，
+动态注册是在代码中进行注册
+
+OrderBrocast
+OrderBrocastReceiver
+OrderBrocastReceiver2
+第一个启动第二个，第二个收到广播后再存进数据，第三个再取
