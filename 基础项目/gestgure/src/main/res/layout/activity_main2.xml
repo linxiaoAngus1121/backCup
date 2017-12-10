@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv1"
+        android:text="请在下方绘制图形"
+        />
+    
+    <!-- gestureStrokeType=single设置手势一次性完成-->
+    <android.gesture.GestureOverlayView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gestureforMain3"
+
+    android:gestureStrokeType="single"
+        ></android.gesture.GestureOverlayView>
+
+</LinearLayout>

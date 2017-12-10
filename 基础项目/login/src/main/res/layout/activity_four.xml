@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+android:background="@mipmap/ic_launcher"
+
+    >
+
+    <TextView
+        android:id="@+id/name_four_tv1"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <EditText
+        android:id="@+id/name_four_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入用户名"
+        android:layout_toRightOf="@+id/name_four_tv1"
+        />
+
+
+    <TextView
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:id="@+id/name_four_tv2"
+        android:textSize="25dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/password"
+        android:layout_below="@id/name_four_tv1"
+        />
+
+    <EditText
+        android:id="@+id/name_four_edit2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/name_four_tv2"
+        android:layout_below="@id/name_four_edit"
+        android:hint="@string/password"
+        tools:ignore="InvalidId" />
+
+    <Button
+        android:id="@+id/name_register_four"
+        android:layout_below="@id/name_four_edit2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/register"
+        />
+
+</RelativeLayout>

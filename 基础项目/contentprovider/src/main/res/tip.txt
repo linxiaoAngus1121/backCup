@@ -1,0 +1,2 @@
+main2activity是演示contentObserver,监听contentprovider变化时调用的
+main3activity是演示service的
