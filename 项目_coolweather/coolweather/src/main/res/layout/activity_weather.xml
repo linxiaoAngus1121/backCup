@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--  每日必应的图片-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/bing_pic_img"
+        android:scaleType="centerCrop"
+        />
+
+    <!--  显示左滑菜单的控件-->
+    <android.support.v4.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawer_layout"
+        >
+    <!-- SwipeRefreshLayout 让scrollview拥有了下拉刷新功能，即手动更新天气-->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swipe_refresh"
+        >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/weather_layout"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        >
+        <!--android:fitsSystemWindows="true"给系统状态栏留出空间 -->
+        <LinearLayout
+            android:fitsSystemWindows="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <include layout="@layout/title"></include>
+
+            <include layout="@layout/now"></include>
+
+            <include layout="@layout/forecast"></include>
+
+            <include layout="@layout/aqi"></include>
+
+            <include layout="@layout/suggestion"></include>
+        </LinearLayout>
+    </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>
+
+<!--  android:layout_gravity="start" 从左边开始，即左滑，这个framger里面显示左滑菜单的内容-->
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.coolweather.android.ChooseAreaFragment"
+            android:id="@+id/choose_area_fragment"
+            android:layout_gravity="start"
+            tools:layout="@layout/choose_area">
+        </fragment>
+
+    </android.support.v4.widget.DrawerLayout>
+</FrameLayout>
