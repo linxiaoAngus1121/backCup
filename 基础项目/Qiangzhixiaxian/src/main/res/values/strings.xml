@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">UiForApplication</string>
+    <string name="button1">button</string>
+    <string name="text1">用户名:</string>
+    <string name="text2">密码:</string>
+    <string name="password">密码</string>
+    <string name="passwor">请输入密码</string>
+    <string name="loginout">下线</string>
+</resources>

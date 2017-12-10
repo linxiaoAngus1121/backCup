@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SqLite</string>
+    <string name="createdatabase">createDatabase</string>
+    <string name="add_data">add_data</string>
+</resources>

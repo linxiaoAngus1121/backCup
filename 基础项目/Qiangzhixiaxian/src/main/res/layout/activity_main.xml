@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   android:orientation="horizontal"
+    android:id="@+id/realtivity"
+    >
+
+   <TextView
+       android:id="@+id/text1"
+       android:textSize="30sp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="@string/text1"
+
+     />
+
+    <EditText
+        android:id="@+id/edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入用户名"
+        android:layout_toRightOf="@+id/text1"
+      />
+
+
+    <TextView
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:id="@+id/text2"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text2"
+        android:layout_below="@id/text1"
+        />
+
+    <EditText
+        android:id="@+id/edt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/text2"
+        android:layout_below="@id/edt"
+        android:hint="@string/passwor"
+        tools:ignore="InvalidId" />
+
+<CheckBox
+    android:id="@+id/checkbox"
+    android:layout_below="@id/edt2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="记住密码"
+    android:checked="true"
+    />
+        <Button
+            android:id="@+id/id"
+            android:layout_below="@id/checkbox"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="登陆"
+            />
+
+
+</RelativeLayout>
+
+
