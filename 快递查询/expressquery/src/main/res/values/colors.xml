@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--colorSilver银灰色-->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="nofocus">#FF764455</color>
+    <color name="title_tv">#de5252</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorSilver">#C0C0C0</color>
+</resources>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0.5"
+        android:background="#B6B6B6"></View>
+
+    <LinearLayout
+        android:baselineAligned="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="4">
+        <!--消息-->
+        <FrameLayout
+            android:id="@+id/fraglay_main_home"
+            android:layout_width="0dp"
+            android:layout_height="53dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/im_main_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center"
+                android:src="@drawable/icon_home_nor" />
+
+            <TextView
+                android:id="@+id/tv_main_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:text="@string/press_query"
+                android:textColor="#ffff"
+                android:textSize="13sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fraglay_main_UnreceivedDelivery"
+            android:layout_width="0dp"
+            android:layout_height="53dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/im_main_serch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center"
+                android:src="@drawable/icon_square_nor" />
+
+            <TextView
+                android:id="@+id/tv_main_serch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:text="@string/my_press"
+                android:textColor="#ffff"
+                android:textSize="13sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fraglay_main_TheDeliveryHasBeenReceived"
+            android:layout_width="0dp"
+            android:layout_height="53dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/im_main_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center"
+                android:src="@drawable/icon_selfinfo_nor" />
+
+            <TextView
+                android:id="@+id/tv_main_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:text="@string/Network_query"
+                android:textColor="#ffff"
+                android:textSize="13sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fraglay_main_PersonalSetting"
+            android:layout_width="0dp"
+            android:layout_height="53dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/im_main_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center"
+                android:src="@drawable/icon_more_nor" />
+
+            <TextView
+                android:id="@+id/tv_main_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:text="@string/person_setting"
+                android:textColor="#ffff"
+                android:textSize="13sp" />
+        </FrameLayout>
+    </LinearLayout>
+</merge>

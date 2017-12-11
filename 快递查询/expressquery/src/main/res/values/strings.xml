@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">ExpressQuery</string>
+    <string-array name="ItemArray">
+        <item>申通快递</item>
+        <item>圆通速递</item>
+        <item>顺丰速运</item>
+        <item>韵达快运</item>
+        <item>中通快递</item>
+        <item>百世快递(原汇通)</item>
+        <item>天天快递</item>
+        <item>宅急送</item>
+        <item>德邦物流</item>
+        <item>天地华宇物流</item>
+        <item>EMS</item>
+        <item>UPS</item>
+        <item>苏宁快递</item>
+        <item>优邦速运</item>
+        <item>亚马逊物流</item>
+        <item>京东快递</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cancel_capture">取消</string>
+    <string name="press_query">快递查询</string>
+    <string name="person_setting">个人设置</string>
+    <string name="Network_query">网点查询</string>
+    <string name="my_press">我的快递</string>
+    <string name="main_frag_tv">点击选择快递公司</string>
+    <string name="enter_odd">输入单号</string>
+    <string name="query">查询</string>
+    <string name="reset">重置</string>
+    <string name="error_tip">查询失败,请确认快递公司和单号是否对应,或单号是否已经过期!</string>
+    <string name="username">用户名:</string>
+    <string name="phone">手机号</string>
+    <string name="pass">密码</string>
+    <string name="zimuheshuzi">1234567890qwertyuioplkjhgfdsazxcvbnm</string>
+    <string name="forepass">忘记密码</string>
+    <string name="login">登录</string>
+    <string name="register">没有账号，立即注册</string>
+    <string name="tip">目前在移动网络，请注意流量</string>
+    <string name="wifi">当前网络为wifi</string>
+    <string name="enter_query_name">请输入市名+镇名</string>
+    <string name="icon">头像</string>
+    <string name="update"><![CDATA[修改>]]></string>
+    <string name="email">邮箱</string>
+    <string name="bound"><![CDATA[绑定>]]></string>
+    <string name="back">返回</string>
+    <string name="information_update">个人信息修改></string>
+    <string name="da_shang">谢谢土豪的支持</string>
+    <string name="title_dashang">打赏作者</string>
+    <string name="suggest">如有任何意见建议，欢迎联系开发者 开发者邮箱 Angus1121@126.com</string>
+    <string name="call">联系开发者</string>
+    <string name="my_address">我的地址本</string>
+    <string name="dashang">打赏</string>
+    <string name="tuichu">退出登录</string>
+    <string name="get_code">验证码</string>
+    <string name="enter_email">请输入邮箱</string>
+    <string name="register_now">注册</string>
+    <string name="clear">清空</string>
+    <string name="enter_old_ps">请输入旧密码</string>
+    <string name="enter_new_ps">请输入新密码</string>
+    <string name="返回"><![CDATA[<]]></string>
+</resources>

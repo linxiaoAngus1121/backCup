@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/login_select">
+
+        <ImageView
+            android:id="@+id/image_useraccount"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="@string/username"
+            android:src="@drawable/image01" />
+
+        <EditText
+            android:id="@+id/edit_account"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignTop="@id/image_useraccount"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/image_useraccount"
+            android:background="@null"
+            android:cursorVisible="false"
+            android:hint="@string/phone" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/edit_account"
+            android:background="#9e3e3e" />
+
+        <ImageView
+            android:id="@+id/image_useryanzhengma"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_below="@id/image_useraccount"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="@string/pass"
+            android:src="@drawable/key" />
+
+
+        <EditText
+            android:id="@+id/edit_mima"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignTop="@id/image_useryanzhengma"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/image_useryanzhengma"
+            android:background="@null"
+            android:digits="@string/zimuheshuzi"
+            android:hint="@string/pass"
+            android:inputType="textPassword" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@id/main"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/login_select"
+        android:text="@string/login" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/forget_pass"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="password"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/register"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="sign up"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

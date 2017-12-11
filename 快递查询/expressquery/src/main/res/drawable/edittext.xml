@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list>
+    <item>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
+            <!-- <solid></solid>填充的颜色，默认为黑色，不可不写-->
+            <solid android:color="#EFEFEF"></solid>
+            <!--<stroke></stroke> 边框的颜色，宽度-->
+            <stroke
+                android:width="1.5dp"
+                android:color="#1199EF"></stroke>
+            <!--corners 应该是圆角的弧度-->
+            <corners android:radius="10dp"></corners>
+
+        </shape>
+
+    </item>
+</layer-list>

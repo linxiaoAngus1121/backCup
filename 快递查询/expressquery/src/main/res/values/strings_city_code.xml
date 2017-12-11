@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="all_code">
+        <item>shentong</item>
+        <item>yuantong</item>
+       <item>shunfeng</item>
+        <item>yunda</item>
+        <item>zhongtong</item>
+        <item>huitong</item>
+        <item>tiantian</item>
+        <item>zhaijisong</item>
+        <item>debang</item>
+        <item>huayu</item>
+        <item>ems</item>
+        <item>upsen</item>
+        <item>suning</item>
+        <item>ybsy</item>
+        <item>yamaxunwuliu</item>
+        <item>jingdong</item>
+    </string-array>
+</resources>
