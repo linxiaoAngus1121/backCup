@@ -185,9 +185,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void init() {
 
         mFraglay_main_home = (FrameLayout) findViewById(R.id.fraglay_main_home);
-        mFraglay_main_UnreceivedDelivery = (FrameLayout) findViewById(R.id.fraglay_main_UnreceivedDelivery);
-        mFraglay_main_TheDeliveryHasBeenReceived = (FrameLayout) findViewById(R.id.fraglay_main_TheDeliveryHasBeenReceived);
-        mFraglay_main_PersonalSetting = (FrameLayout) findViewById(R.id.fraglay_main_PersonalSetting);
+        mFraglay_main_UnreceivedDelivery = (FrameLayout) findViewById(R.id
+                .fraglay_main_UnreceivedDelivery);
+        mFraglay_main_TheDeliveryHasBeenReceived = (FrameLayout) findViewById(R.id
+                .fraglay_main_TheDeliveryHasBeenReceived);
+        mFraglay_main_PersonalSetting = (FrameLayout) findViewById(R.id
+                .fraglay_main_PersonalSetting);
 
         mIm_main_home = (ImageView) findViewById(R.id.im_main_home);
         mTv_main_home = (TextView) findViewById(R.id.tv_main_home);

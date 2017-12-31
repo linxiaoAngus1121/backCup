@@ -39,10 +39,12 @@ public class QueryUtil {
         String mysecret = "d6be03fcaaac4165b608421214d1561f";
         String url;
         if (code == null) {        //代表没有输入快递名称，那就采用auto方式查询
-            url = "http://route.showapi.com/64-19?showapi_appid=" + myid + "&com=auto" + "&nu=" + odd
+            url = "http://route.showapi.com/64-19?showapi_appid=" + myid + "&com=auto" + "&nu=" +
+                    odd
                     + "&showapi_sign=" + mysecret;
         } else {                  //有快递名称
-            url = "http://route.showapi.com/64-19?showapi_appid=" + myid + "&com=" + code + "&nu=" + odd
+            url = "http://route.showapi.com/64-19?showapi_appid=" + myid + "&com=" + code +
+                    "&nu=" + odd
                     + "&showapi_sign=" + mysecret;
         }
 
@@ -67,7 +69,8 @@ public class QueryUtil {
                     * */
                     Gson gson = new Gson();
                     Root mroot = gson.fromJson(string, Root.class);
-                    List<com.my.expressquery.Json.Json_express_query.Data> dataList = mroot.getResult_body().getDatas();
+                    List<com.my.expressquery.Json.Json_express_query.Data> dataList = mroot
+                            .getResult_body().getDatas();
                     if (dataList == null) {
                         return;
                     }
@@ -80,7 +83,8 @@ public class QueryUtil {
                     /*
                     *   第一个为快递信息，第二个为快递名称，第三个为快递代号
                     * */
-                    callBack.success(builder.toString(), mroot.getResult_body().getExpTextName(), mroot.getResult_body().getExpSpellName());
+                    callBack.success(builder.toString(), mroot.getResult_body().getExpTextName(),
+                            mroot.getResult_body().getExpSpellName());
                 }
             }
 
@@ -107,7 +111,8 @@ public class QueryUtil {
         BmobQuery<Data> dataBmobQuery = new BmobQuery<>();
         Log.i("000", BmobUser.getCurrentUser().getObjectId() + "这是当前user的objectid");
         dataBmobQuery.addWhereEqualTo("odd", odd);
-        dataBmobQuery.addWhereEqualTo("user", BmobUser.getCurrentUser());       //需要有这个限制条件，不然会删除别的用户的数据
+        dataBmobQuery.addWhereEqualTo("user", BmobUser.getCurrentUser());
+        //需要有这个限制条件，不然会删除别的用户的数据
         dataBmobQuery.addQueryKeys("objectId");         //只查询objectId这一列
         dataBmobQuery.findObjects(new FindListener<Data>() {
             @Override
@@ -137,7 +142,8 @@ public class QueryUtil {
 
     //网点查询
     public void networl_query(final NetWorkQuery_CallBack callBack, String address) {
-        String url = "http://route.showapi.com/64-18?showapi_appid=47084&siteName=" + address + "&showapi_sign=d6be03fcaaac4165b608421214d1561f";
+        String url = "http://route.showapi.com/64-18?showapi_appid=47084&siteName=" + address +
+                "&showapi_sign=d6be03fcaaac4165b608421214d1561f";
         Log.i("000", url + "url?????????>>>>>>>>>>util中的");
         HttpUtil.sendHttpRequest(url, new Callback() {
             @Override

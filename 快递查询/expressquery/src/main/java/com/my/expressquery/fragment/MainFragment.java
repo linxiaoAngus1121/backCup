@@ -50,7 +50,8 @@ public class MainFragment extends Fragment implements View.OnClickListener, Call
     private ImageButton share;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
+            savedInstanceState) {
         View view = inflater.inflate(R.layout.main_fragment, container, false);
         Log.i("000", "这是Mainfragmetn_onCreateView");
         init(view);
@@ -99,22 +100,25 @@ public class MainFragment extends Fragment implements View.OnClickListener, Call
                 break;
             case R.id.share:
                 //一键分享,每个平台都会分享这个信息，如果调用分享到指定平台的话，应该是每个平台对应不同代码
-              OnekeyShare share=new OnekeyShare();
+                OnekeyShare share = new OnekeyShare();
                 share.setText("我发现一款很好的APP，http://www.baidu.com复制此衔接下载");
                 share.setCallback(new PlatformActionListener() {
                     @Override
-                    public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
-                        Log.i("000","成功");
-                        Toast.makeText(getContext(),"分享成功",Toast.LENGTH_SHORT).show();
+                    public void onComplete(Platform platform, int i, HashMap<String, Object>
+                            hashMap) {
+                        Log.i("000", "成功");
+                        Toast.makeText(getContext(), "分享成功", Toast.LENGTH_SHORT).show();
                     }
+
                     @Override
                     public void onError(Platform platform, int i, Throwable throwable) {
-                        Log.i("000",throwable.toString());
-                        Log.i("000","onError");
+                        Log.i("000", throwable.toString());
+                        Log.i("000", "onError");
                     }
+
                     @Override
                     public void onCancel(Platform platform, int i) {
-                        Log.i("000","onCancel");
+                        Log.i("000", "onCancel");
                     }
                 });
                 share.show(getContext());
@@ -126,7 +130,8 @@ public class MainFragment extends Fragment implements View.OnClickListener, Call
                 platform.share(share);
                 platform.setPlatformActionListener(new PlatformActionListener() {
                     @Override
-                    public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+                    public void onComplete(Platform platform, int i, HashMap<String, Object>
+                    hashMap) {
                         Log.i("000", "成功");
                     }
 
@@ -175,7 +180,6 @@ public class MainFragment extends Fragment implements View.OnClickListener, Call
     @Override
     public void onResume() {
         super.onResume();
-        Log.i("000", "这是Mainfragmetn_onResume");
     }
 
     @Override

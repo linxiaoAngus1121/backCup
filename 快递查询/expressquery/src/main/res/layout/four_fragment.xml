@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,10 +10,13 @@
         android:layout_marginTop="15dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/animal02" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/head_image"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="30dp"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="30sp" />
+                android:textSize="30sp"/>
 
             <TextView
                 android:id="@+id/four_information"
@@ -33,7 +36,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/information_update"
-                android:textSize="20sp" />
+                android:textSize="20sp"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -48,14 +51,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/address_book" />
+            android:src="@drawable/address_book"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/my_address"
-            android:textSize="30sp" />
+            android:textSize="30sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -69,14 +72,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/develop" />
+            android:src="@drawable/develop"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/call"
-            android:textSize="30sp" />
+            android:textSize="30sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -90,14 +93,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/reward" />
+            android:src="@drawable/reward"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/dashang"
-            android:textSize="30sp" />
+            android:textSize="30sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -111,13 +114,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/logout" />
+            android:src="@drawable/logout"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/tuichu"
-            android:textSize="30sp" />
+            android:textSize="30sp"/>
     </LinearLayout>
 </LinearLayout>

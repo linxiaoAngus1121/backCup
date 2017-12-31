@@ -1,6 +1,5 @@
 package com.my.expressquery;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,12 +10,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.my.expressquery.HttpUtil.NetUtil;
+import com.my.expressquery.db.MyUser;
+
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
 
-public class Login_Activity extends Activity implements View.OnClickListener {
+
+public class Login_Activity extends BaseActivity implements View.OnClickListener {
 
     private EditText mEdit_account;
     private EditText mEdit_mima;
@@ -28,9 +31,14 @@ public class Login_Activity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        boolean isconnected = NetUtil.checkNet(this);
+        if (!isconnected) {
+            Toast.makeText(this, "出事了，没网", Toast.LENGTH_SHORT).show();
+        }
         Bmob.initialize(Login_Activity.this, "11e8b284d54846a83eed910d02903646");
         init();
     }
+
 
     private void init() {
         mEdit_account = (EditText) findViewById(R.id.edit_account);
@@ -77,9 +85,9 @@ public class Login_Activity extends Activity implements View.OnClickListener {
 
     private void login(String usrename, String pass) {
 
-        BmobUser.loginByAccount(usrename, pass, new LogInListener<BmobUser>() {
+        BmobUser.loginByAccount(usrename, pass, new LogInListener<MyUser>() {
             @Override
-            public void done(BmobUser user, BmobException e) {
+            public void done(MyUser user, BmobException e) {
                 if (user != null) {
                     mLogin.setClickable(false);
                     mLogin.setText("登录成功，请稍后");

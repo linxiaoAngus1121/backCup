@@ -61,4 +61,5 @@
     <string name="enter_old_ps">请输入旧密码</string>
     <string name="enter_new_ps">请输入新密码</string>
     <string name="返回"><![CDATA[<]]></string>
+    <string name="ensure">确定</string>
 </resources>

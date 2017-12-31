@@ -28,10 +28,6 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        boolean isconnected = NetUtil.checkNet(this);
-        if (!isconnected) {
-            setNetWork();
-        }
         applyForRight();  //申请权限
     }
 
@@ -39,6 +35,7 @@ public class BaseActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("网络连接不可用，请设置网络");
         builder.setIcon(R.drawable.wifi);
+        builder.setCancelable(false);
         builder.setPositiveButton("设置", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -46,27 +43,44 @@ public class BaseActivity extends AppCompatActivity {
                 startActivity(intent);      //打开系统设置
             }
         });
-        builder.setNegativeButton("取消", null);
+        // builder.setNegativeButton("取消", null);
         builder.create().show();
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        boolean isconnected = NetUtil.checkNet(this);
+        if (!isconnected) {
+            setNetWork();
+        }
+
+    }
+
     private void applyForRight() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager
+                .PERMISSION_GRANTED) {
             permissionList.add(Manifest.permission.CAMERA);
         }
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.VIBRATE) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.VIBRATE) !=
+                PackageManager.PERMISSION_GRANTED) {
             permissionList.add(Manifest.permission.VIBRATE);
         }
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WAKE_LOCK) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WAKE_LOCK) !=
+                PackageManager.PERMISSION_GRANTED) {
             permissionList.add(Manifest.permission.WAKE_LOCK);
         }
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
+                PackageManager.PERMISSION_GRANTED) {
             permissionList.add(Manifest.permission.ACCESS_FINE_LOCATION);
         }
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) !=
+                PackageManager.PERMISSION_GRANTED) {
             permissionList.add(Manifest.permission.READ_PHONE_STATE);
         }
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
             permissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
         if (!permissionList.isEmpty()) {
@@ -76,7 +90,8 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case 1:
@@ -99,6 +114,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         permissionList.clear();
+        permissionList = null;
     }
 
 }

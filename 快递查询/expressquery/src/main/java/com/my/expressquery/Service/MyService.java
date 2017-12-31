@@ -6,6 +6,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.my.expressquery.db.Data;
+import com.my.expressquery.db.MyUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class MyService extends Service {
         final String odd = intent.getStringExtra("odd");       //单号
         final String name = intent.getStringExtra("name");  //快递名称
         final String code = intent.getStringExtra("code");
-        final BmobUser currentUser = BmobUser.getCurrentUser();
+        final BmobUser currentUser = BmobUser.getCurrentUser(MyUser.class);
         new Thread(new Runnable() {
             @Override
             public void run() {

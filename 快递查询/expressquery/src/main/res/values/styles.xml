@@ -12,8 +12,16 @@
         <item name="android:windowEnterAnimation">@anim/context_menu_enter</item>
         <item name="android:windowExitAnimation">@anim/context_menu_exit</item>
     </style>
+
     <style name="MyEditText" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@android:color/black</item>
         <item name="colorControlActivated">@android:color/holo_orange_dark</item>
+    </style>
+
+    <!--使用v7下的包，会导致主题错误，使用下面的style可以解决-->
+    <style name="MyStyle" parent="Theme.AppCompat.NoActionBar">
+
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
     </style>
 </resources>

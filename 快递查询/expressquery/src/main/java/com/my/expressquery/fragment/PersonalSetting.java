@@ -1,6 +1,7 @@
 package com.my.expressquery.fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,12 +10,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.my.expressquery.ChangeActivity;
 import com.my.expressquery.Login_Activity;
 import com.my.expressquery.R;
+import com.my.expressquery.db.MyUser;
 
 import cn.bmob.v3.BmobUser;
 
@@ -31,7 +34,7 @@ public class PersonalSetting extends Fragment implements View.OnClickListener {
     private LinearLayout mFour_call_developer;  //联系开发者
     private LinearLayout mFour_reward;      //打赏
     private LinearLayout mFour_logout;      //退出
-
+    private ImageView mHeadImage;           //头像
     private Intent intent;
 
 
@@ -91,13 +94,13 @@ public class PersonalSetting extends Fragment implements View.OnClickListener {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
+            Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.four_fragment, container, false);
         init(view);
         Log.i("000", "onCreateView44444");
         return view;
     }
-
 
 
     private void init(View view) {
@@ -107,12 +110,19 @@ public class PersonalSetting extends Fragment implements View.OnClickListener {
         mFour_call_developer = (LinearLayout) view.findViewById(R.id.four_call_developer);
         mFour_reward = (LinearLayout) view.findViewById(R.id.four_reward);
         mFour_logout = (LinearLayout) view.findViewById(R.id.four_logout);
+        mHeadImage = (ImageView) view.findViewById(R.id.head_image);
         mFour_information.setOnClickListener(this);
         mFour_address.setOnClickListener(this);
         mFour_call_developer.setOnClickListener(this);
         mFour_reward.setOnClickListener(this);
         mFour_logout.setOnClickListener(this);
-        mFour_phone.setText(BmobUser.getCurrentUser().getMobilePhoneNumber());
+        Uri uri = Uri.parse(BmobUser.getCurrentUser(MyUser.class).getPath());
+        if (uri == null) {
+            mHeadImage.setImageResource(R.drawable.animal02);
+        } else {
+            mHeadImage.setImageURI(uri);
+        }
+        mFour_phone.setText(BmobUser.getCurrentUser(MyUser.class).getMobilePhoneNumber());
     }
 
     @Override
@@ -138,7 +148,8 @@ public class PersonalSetting extends Fragment implements View.OnClickListener {
     }
 
     private void call() {
-        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager()
+                .beginTransaction();
         transaction.replace(R.id.fragment_layout, new Contact_developFragment());
         transaction.addToBackStack(null);        //加入会退栈，不然无法返回
         transaction.commit();
@@ -146,10 +157,11 @@ public class PersonalSetting extends Fragment implements View.OnClickListener {
 
     private void dahshang() {
         DaShangFragment fragment = new DaShangFragment();
-        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager()
+                .beginTransaction();
         transaction.replace(R.id.fragment_layout, fragment);
         //如果是add的话，不会执行其他fragment的销毁方法，
-      transaction.addToBackStack("main_for_fragment");        //加入会退栈，不然无法返回
+        transaction.addToBackStack("main_for_fragment");        //加入会退栈，不然无法返回
         transaction.commit();
     }
 
