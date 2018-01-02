@@ -44,7 +44,7 @@ import com.baidu.mapapi.search.geocode.GeoCodeResult;
 import com.baidu.mapapi.search.geocode.GeoCoder;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
-import com.my.expressquery.HttpUtil.QueryUtil;
+import com.my.expressquery.util.QueryUtils;
 import com.my.expressquery.Json.Json_Network_Query.Net_Data;
 import com.my.expressquery.MyInterFace.NetWorkQuery_CallBack;
 import com.my.expressquery.R;
@@ -154,7 +154,7 @@ public class Network_query extends Fragment implements View.OnClickListener, Net
 
     @Override
     public void onClick(View v) {
-        QueryUtil util = new QueryUtil();
+        QueryUtils util = new QueryUtils();
         util.networl_query(this, mEdit.getText().toString());
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm != null) {

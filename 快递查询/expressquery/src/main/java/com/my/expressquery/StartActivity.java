@@ -29,10 +29,10 @@ public class StartActivity extends Activity {
                 @Override
                 public void done(String s, BmobException e) {
                     if (e == null) {
-                        Log.i("000", "Newest UserInfo is " + s);
+                        Log.i("000", "正确情况下的Newest UserInfo is " + s);
 
                     } else {
-                        Log.i("000", "Newest UserInfo is " + e.toString());//出错
+                        Log.i("000", "出错情况下的数据Newest UserInfo is " + e.toString());//出错
                     }
                 }
             });

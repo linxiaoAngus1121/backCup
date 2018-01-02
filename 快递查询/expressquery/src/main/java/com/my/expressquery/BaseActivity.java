@@ -13,7 +13,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.my.expressquery.HttpUtil.NetUtil;
+import com.my.expressquery.util.NetUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +51,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        boolean isconnected = NetUtil.checkNet(this);
+        boolean isconnected = NetUtils.checkNet(this);
         if (!isconnected) {
             setNetWork();
         }

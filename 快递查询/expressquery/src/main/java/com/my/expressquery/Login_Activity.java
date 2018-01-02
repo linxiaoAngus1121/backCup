@@ -3,20 +3,16 @@ package com.my.expressquery;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.my.expressquery.HttpUtil.NetUtil;
-import com.my.expressquery.db.MyUser;
+import com.my.expressquery.util.LoginAndReisterUtils;
+import com.my.expressquery.util.NetUtils;
 
 import cn.bmob.v3.Bmob;
-import cn.bmob.v3.BmobUser;
-import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.LogInListener;
 
 
 public class Login_Activity extends BaseActivity implements View.OnClickListener {
@@ -31,7 +27,7 @@ public class Login_Activity extends BaseActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        boolean isconnected = NetUtil.checkNet(this);
+        boolean isconnected = NetUtils.checkNet(this);
         if (!isconnected) {
             Toast.makeText(this, "出事了，没网", Toast.LENGTH_SHORT).show();
         }
@@ -61,6 +57,7 @@ public class Login_Activity extends BaseActivity implements View.OnClickListener
                     Toast.makeText(Login_Activity.this, "请输入账号密码", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                mLogin.setClickable(false);
                 login(account, pass);
                 break;
             case R.id.register:        //注册
@@ -84,24 +81,19 @@ public class Login_Activity extends BaseActivity implements View.OnClickListener
     }
 
     private void login(String usrename, String pass) {
-
-        BmobUser.loginByAccount(usrename, pass, new LogInListener<MyUser>() {
+        //采用接口回调进行登录,进行解耦
+        LoginAndReisterUtils.login(usrename, pass, new LoginAndReisterUtils.LoginAndRegisterListener() {
             @Override
-            public void done(MyUser user, BmobException e) {
-                if (user != null) {
-                    mLogin.setClickable(false);
+            public void successFul(boolean flag) {
+                if (flag) {
                     mLogin.setText("登录成功，请稍后");
                     Intent intetnt = new Intent(Login_Activity.this, MainActivity.class);
                     startActivity(intetnt);
                     finish();
                 } else {
-                    Log.i("000", e.getMessage());
                     Toast.makeText(Login_Activity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
-                    Log.i("000", e.toString());
                 }
             }
         });
     }
-
-
 }

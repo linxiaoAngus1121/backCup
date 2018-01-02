@@ -23,7 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.my.expressquery.HttpUtil.QueryUtil;
+import com.my.expressquery.util.QueryUtils;
 import com.my.expressquery.MyInterFace.CallBack;
 import com.my.expressquery.MyInterFace.CallBckGetData;
 import com.my.expressquery.R;
@@ -42,7 +42,7 @@ public class my_press extends Fragment implements CallBack, SwipeRefreshLayout.O
     private List<Data> mList;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private AdapterForMyPress adpter;
-    private QueryUtil queryUtil;
+    private QueryUtils queryUtils;
     private PopupWindow popupWindow;
     private View finalConvertView;
     private View inflate;
@@ -50,7 +50,7 @@ public class my_press extends Fragment implements CallBack, SwipeRefreshLayout.O
     private ProgressDialog dialog;
 
     public my_press() {
-        queryUtil = new QueryUtil();
+        queryUtils = new QueryUtils();
         mList = new ArrayList<Data>();
     }
 
@@ -73,7 +73,7 @@ public class my_press extends Fragment implements CallBack, SwipeRefreshLayout.O
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        queryUtil.queryDataForMy_prsss(my_press.this);
+        queryUtils.queryDataForMy_prsss(my_press.this);
     }
 
 
@@ -110,7 +110,7 @@ public class my_press extends Fragment implements CallBack, SwipeRefreshLayout.O
             public void run() {
                 mSwipeRefreshLayout.setRefreshing(true);
                 //这个时候应该再次请求网络，刷新数据
-                queryUtil.queryDataForMy_prsss(my_press.this);
+                queryUtils.queryDataForMy_prsss(my_press.this);
                 mSwipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -123,7 +123,7 @@ public class my_press extends Fragment implements CallBack, SwipeRefreshLayout.O
         if (mList != null) {
             mList.clear();
         }
-        mList.addAll(list);     //
+        mList.addAll(list);
         if (adpter == null) {
             adpter = new AdapterForMyPress(mList, getContext());   //通过adapter显示数据
             mListView.setAdapter(adpter);
@@ -142,7 +142,7 @@ public class my_press extends Fragment implements CallBack, SwipeRefreshLayout.O
     //短按实现查询快递
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        queryUtil.queryNoName(my_press.this, mList.get(position).getOdd(), mList.get(position).getCode());    //无名称方式查询快递
+        queryUtils.queryNoName(my_press.this, mList.get(position).getOdd(), mList.get(position).getCode());    //无名称方式查询快递
         Log.i("000", "这是listview的onitemclick");
         dialog.show();
     }
@@ -159,7 +159,7 @@ public class my_press extends Fragment implements CallBack, SwipeRefreshLayout.O
             public void onClick(DialogInterface dialog, int which) {
                 String odd = mList.get(position).getOdd();
                 Log.i("000", mList.get(position).getOdd() + "这是要删除的快递odd");
-                queryUtil.deleteData(my_press.this, odd);
+                queryUtils.deleteData(my_press.this, odd);
             }
         });
         builder.setNegativeButton("取消", null);
@@ -173,7 +173,7 @@ public class my_press extends Fragment implements CallBack, SwipeRefreshLayout.O
         if (strings.equals("SUCCESS")) {       //证明是删除数据的
             Toast.makeText(getContext(), "删除成功", Toast.LENGTH_SHORT).show();
             //   adpter.notifyDataSetChanged();
-            queryUtil.queryDataForMy_prsss(my_press.this);
+            queryUtils.queryDataForMy_prsss(my_press.this);
         } else {            //这里是查询快递的
             Log.i("000", strings + "success方法中的");
             Looper.prepare();
@@ -188,7 +188,7 @@ public class my_press extends Fragment implements CallBack, SwipeRefreshLayout.O
             popupWindow.setOutsideTouchable(true);                  //设置是否可以点击外面，让popuwindow消失
             popupWindow.setAnimationStyle(R.style.anim);            //设置popuwindow开始和结束的动画
             dialog.cancel();
-            popupWindow.showAtLocation(inflate, Gravity.LEFT | Gravity.TOP, 0, 0);  //显示popuwindow
+            popupWindow.showAtLocation(inflate, Gravity.START | Gravity.TOP, 0, 0);  //显示popuwindow
             Looper.loop();
         }
     }

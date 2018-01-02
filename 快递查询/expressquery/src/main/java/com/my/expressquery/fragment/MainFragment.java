@@ -20,18 +20,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.my.expressquery.HttpUtil.QueryUtil;
 import com.my.expressquery.MyInterFace.CallBack;
 import com.my.expressquery.R;
 import com.my.expressquery.Service.MyService;
 import com.my.expressquery.ShowDiagoActivity;
+import com.my.expressquery.util.QueryUtils;
+import com.my.expressquery.util.ShareUtils;
 import com.my.expressquery.zxing.activity.CaptureActivity;
-
-import java.util.HashMap;
-
-import cn.sharesdk.framework.Platform;
-import cn.sharesdk.framework.PlatformActionListener;
-import cn.sharesdk.onekeyshare.OnekeyShare;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -85,7 +80,7 @@ public class MainFragment extends Fragment implements View.OnClickListener, Call
                     return;
                 }
                 progressDialog.show();
-                QueryUtil util = new QueryUtil();
+                QueryUtils util = new QueryUtils();
                 // TODO: 2017/11/28 lalallala 
                 util.queryNoName(MainFragment.this, odd, null);
 
@@ -99,53 +94,8 @@ public class MainFragment extends Fragment implements View.OnClickListener, Call
                 }
                 break;
             case R.id.share:
-                //一键分享,每个平台都会分享这个信息，如果调用分享到指定平台的话，应该是每个平台对应不同代码
-                OnekeyShare share = new OnekeyShare();
-                share.setText("我发现一款很好的APP，http://www.baidu.com复制此衔接下载");
-                share.setCallback(new PlatformActionListener() {
-                    @Override
-                    public void onComplete(Platform platform, int i, HashMap<String, Object>
-                            hashMap) {
-                        Log.i("000", "成功");
-                        Toast.makeText(getContext(), "分享成功", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onError(Platform platform, int i, Throwable throwable) {
-                        Log.i("000", throwable.toString());
-                        Log.i("000", "onError");
-                    }
-
-                    @Override
-                    public void onCancel(Platform platform, int i) {
-                        Log.i("000", "onCancel");
-                    }
-                });
-                share.show(getContext());
-               /* Platform.ShareParams share = new Platform.ShareParams();
-                share.setShareType(Platform.SHARE_IMAGE);
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.back);
-                share.setImageData(bitmap);
-                Platform platform = ShareSDK.getPlatform(Wechat.NAME);
-                platform.share(share);
-                platform.setPlatformActionListener(new PlatformActionListener() {
-                    @Override
-                    public void onComplete(Platform platform, int i, HashMap<String, Object>
-                    hashMap) {
-                        Log.i("000", "成功");
-                    }
-
-                    @Override
-                    public void onError(Platform platform, int i, Throwable throwable) {
-                        Log.i("000", "onError");
-                        Log.i("000", throwable.toString());
-                    }
-
-                    @Override
-                    public void onCancel(Platform platform, int i) {
-                        Log.i("000", "onCancel");
-                    }
-                });*/
+                //分享
+                ShareUtils.share(getContext());
                 break;
         }
     }
