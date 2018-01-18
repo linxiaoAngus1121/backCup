@@ -95,12 +95,18 @@ public class PhotoUtils {
     /**
      * 显示图片
      */
-    public static void setImageToView(ImageView iv, Intent data) {
+    public static String setImageToView(ImageView iv, Intent data) {
         Bundle extras = data.getExtras();
+        String toString = null;
         if (extras != null) {
             Bitmap photo = extras.getParcelable("data");
-            iv.setImageBitmap(photo);
+            if (photo != null) {
+                //图片加密后保存
+                toString = Base64Utils.encrypt(photo);
+                iv.setImageBitmap(photo);
+            }
         }
+        return toString;
     }
 
     /**
@@ -128,6 +134,7 @@ public class PhotoUtils {
         intent.putExtra(MediaStore.EXTRA_OUTPUT, uritempFile);
         intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
         intent.putExtra("myNeedInfor", mHeadImagePaht);
+
         return intent;
     }
 

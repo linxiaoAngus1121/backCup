@@ -1,10 +1,11 @@
 package com.my.expressquery;
 
 import android.content.DialogInterface;
-import android.net.Uri;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,8 @@ import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static cn.bmob.v3.BmobUser.getCurrentUser;
 /*
 * 个人信息修改的activity
 * */
@@ -46,8 +49,9 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
         mFirst.setOnClickListener(this);
         mSecond.setOnClickListener(this);
         mThree.setOnClickListener(this);
-        Uri uri = Uri.parse(BmobUser.getCurrentUser(MyUser.class).getPath());
-        head_title.setImageURI(uri);
+        String path = BmobUser.getCurrentUser(MyUser.class).getPath();
+        byte[] bytes = Base64.decode(path, Base64.DEFAULT);
+        head_title.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.length));
     }
 
     @Override
@@ -70,14 +74,14 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
 
     //有问题
     private void bind() {
-        if (BmobUser.getCurrentUser(MyUser.class) != null) {
+        if (getCurrentUser(MyUser.class) != null) {
             Boolean emailVerified = (Boolean) BmobUser.getObjectByKey("emailVerified");
             Log.i("000", emailVerified + "这是email的装填");
             if (emailVerified) {
                 Toast.makeText(this, "邮箱已经验证通过", Toast.LENGTH_SHORT).show();
             } else {
                 Log.i("000", (String) BmobUser.getObjectByKey("email"));
-                BmobUser.getCurrentUser(MyUser.class).requestEmailVerify((String) BmobUser
+                getCurrentUser(MyUser.class).requestEmailVerify((String) BmobUser
                         .getObjectByKey
                                 ("email"), new UpdateListener() {
                     @Override

@@ -1,11 +1,13 @@
 package com.my.expressquery.fragment;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -119,8 +121,12 @@ public class PersonalSetting extends Fragment implements View.OnClickListener {
         Uri uri = Uri.parse(BmobUser.getCurrentUser(MyUser.class).getPath());
         if (uri == null) {
             mHeadImage.setImageResource(R.drawable.animal02);
+            Log.i("000", "为空的情况");
         } else {
-            mHeadImage.setImageURI(uri);
+            Log.i("000", "不为空的情况");
+            String path = BmobUser.getCurrentUser(MyUser.class).getPath();
+            byte[] bytes = Base64.decode(path, Base64.DEFAULT);
+            mHeadImage.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.length));
         }
         mFour_phone.setText(BmobUser.getCurrentUser(MyUser.class).getMobilePhoneNumber());
     }

@@ -77,7 +77,7 @@ public class Login_Activity extends BaseActivity implements View.OnClickListener
     }
 
     private void register() {
-        Intent intetnt = new Intent(Login_Activity.this, Register_activity.class);
+        Intent intetnt = new Intent(Login_Activity.this, RegisterActivity.class);
         startActivity(intetnt);
     }
 

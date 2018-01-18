@@ -55,7 +55,7 @@
             android:name=".Login_Activity"
             android:theme="@style/MyStyle"/>
         <activity
-            android:name=".Register_activity"
+            android:name=".RegisterActivity"
             android:theme="@style/MyStyle"/>
 
         <activity android:name=".DetailsActivity"/>
