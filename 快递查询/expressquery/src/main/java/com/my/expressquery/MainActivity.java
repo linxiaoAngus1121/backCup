@@ -128,7 +128,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case 2:
                 mIm_main_collect.setImageResource(R.drawable.icon_selfinfo_sel);
-                mTv_main_collect.setTextColor(Color.parseColor("#FF94D697"));
+                mTv_main_collect.setTextColor(getResources().getColor(R.color.colorGreen));
                 if (theDeliveryHasBeenReceived == null) {
                     theDeliveryHasBeenReceived = new Network_query();
                     transaction.add(R.id.fragment_layout, theDeliveryHasBeenReceived);
@@ -138,7 +138,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case 3:
                 mIm_main_more.setImageResource(R.drawable.icon_more_sel);
-                mTv_main_more.setTextColor(Color.parseColor("#FF94D697"));
+                mTv_main_more.setTextColor(getResources().getColor(R.color.colorGreen));
                 if (personalSetting == null) {
                     personalSetting = new PersonalSetting();
                     transaction.add(R.id.fragment_layout, personalSetting);
@@ -173,13 +173,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     //清除所有的样式
     private void clearStyle() {
         mIm_main_home.setImageResource(R.drawable.icon_home_nor);
-        mTv_main_home.setTextColor(Color.parseColor("#FFFFFFFF"));
+        mTv_main_home.setTextColor(getResources().getColor(R.color.colorWhite));
         mIm_main_serch.setImageResource(R.drawable.icon_square_nor);
-        mTv_main_serch.setTextColor(Color.parseColor("#FFFFFFFF"));
+        mTv_main_serch.setTextColor(getResources().getColor(R.color.colorWhite));
         mIm_main_collect.setImageResource(R.drawable.icon_selfinfo_nor);
-        mTv_main_collect.setTextColor(Color.parseColor("#FFFFFFFF"));
+        mTv_main_collect.setTextColor(getResources().getColor(R.color.colorWhite));
         mIm_main_more.setImageResource(R.drawable.icon_more_nor);
-        mTv_main_more.setTextColor(Color.parseColor("#FFFFFFFF"));
+        mTv_main_more.setTextColor(getResources().getColor(R.color.colorWhite));
     }
 
     private void init() {

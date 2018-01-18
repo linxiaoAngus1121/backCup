@@ -8,4 +8,6 @@
     <color name="title_tv">#de5252</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorSilver">#C0C0C0</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGreen">#FF94D697</color>
 </resources>

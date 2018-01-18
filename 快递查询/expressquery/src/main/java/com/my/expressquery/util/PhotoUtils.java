@@ -92,7 +92,9 @@ public class PhotoUtils {
         return size;
     }
 
-    //显示图片
+    /**
+     * 显示图片
+     */
     public static void setImageToView(ImageView iv, Intent data) {
         Bundle extras = data.getExtras();
         if (extras != null) {
@@ -101,6 +103,9 @@ public class PhotoUtils {
         }
     }
 
+    /**
+     * 开始裁剪
+     */
     public static Intent startPhotoZoom(Uri ul) {
         if (ul == null) {
             return null;

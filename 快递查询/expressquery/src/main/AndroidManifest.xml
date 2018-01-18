@@ -58,26 +58,32 @@
             android:name=".Register_activity"
             android:theme="@style/MyStyle"/>
 
+        <activity android:name=".DetailsActivity"/>
+        <activity android:name=".BaseActivity"/>
+
         <service
             android:name=".Service.MyService"
             android:enabled="true"
             android:exported="true"/>
-
-        <activity android:name=".DetailsActivity"/>
-        <activity android:name=".BaseActivity"/>
-
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote"/>
 
         <activity android:name=".ChangeActivity"/>
-
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name=".ForegestPsActivity"/>
+
 
         <meta-data
             android:name="Mob-AppKey"
@@ -85,19 +91,13 @@
         <meta-data
             android:name="Mob-AppSecret"
             android:value="5f12a188cd2732d58705d6ea97c92425"/>
-
-        <activity
-            android:name="com.my.expressquery.wxapi.WXEntryActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-
         <!-- 调用新浪原生SDK，需要注册的回调activity -->
         <intent-filter>
             <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+
             <category android:name="android.intent.category.DEFAULT"/>
         </intent-filter>
+
     </application>
 
 </manifest>

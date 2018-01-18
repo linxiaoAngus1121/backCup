@@ -72,7 +72,8 @@ public class Login_Activity extends BaseActivity implements View.OnClickListener
     }
 
     private void findps() {
-
+        Intent intent = new Intent(Login_Activity.this, ForegestPsActivity.class);
+        startActivity(intent);
     }
 
     private void register() {
@@ -82,7 +83,8 @@ public class Login_Activity extends BaseActivity implements View.OnClickListener
 
     private void login(String usrename, String pass) {
         //采用接口回调进行登录,进行解耦
-        LoginAndReisterUtils.login(usrename, pass, new LoginAndReisterUtils.LoginAndRegisterListener() {
+        LoginAndReisterUtils.login(usrename, pass, new LoginAndReisterUtils
+                .LoginAndRegisterListener() {
             @Override
             public void successFul(boolean flag) {
                 if (flag) {

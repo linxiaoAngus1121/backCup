@@ -1,0 +1,111 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    >
+
+    <!--  <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_centerInParent="true"
+          android:layout_marginLeft="50dp"
+          android:layout_marginRight="50dp">
+
+          &lt;!&ndash;自定义一个button&ndash;&gt;
+          <com.my.expressquery.customView.ButtonM
+              android:id="@+id/btm_oval_color_xml"
+              android:layout_width="100dp"
+              android:layout_height="100dp"
+              android:gravity="center"
+              android:text="邮箱方式"
+              android:textSize="12sp"
+              landptf:backColorPress="#737061"
+              landptf:background_color="#9e8781"
+              landptf:fillet="true"
+              landptf:shape="oval"
+              />
+
+          &lt;!&ndash;自定义一个button&ndash;&gt;
+          <com.my.expressquery.customView.ButtonM
+              android:id="@+id/buttonM"
+              android:layout_width="100dp"
+              android:layout_height="100dp"
+              android:layout_alignParentRight="true"
+              android:gravity="center"
+              android:text="手机验证码方式"
+              android:textSize="12sp"
+              landptf:backColorPress="#5e8172"
+              landptf:background_color="#9e8781"
+              landptf:fillet="true"
+              landptf:shape="oval"/>
+      </RelativeLayout>-->
+
+
+    <LinearLayout
+        android:id="@+id/tilte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_main_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/update_ps"
+            android:textColor="@color/colorBlack"
+            android:textSize="30sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/colorSilver"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/foget_ps_style">
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/update_email"
+            android:textSize="15sp"
+            />
+
+        <!--两个textview中间的那条线-->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            />
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/update_phone"
+            android:textSize="15sp"
+            />
+    </LinearLayout>
+
+    <!--fragment填充到这个fragmeLayout-->
+    <FrameLayout
+        android:id="@+id/fill"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
+

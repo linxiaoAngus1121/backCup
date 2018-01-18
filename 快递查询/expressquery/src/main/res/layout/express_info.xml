@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="50dp"
@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="10dp"
             android:layout_height="10dp"
-            android:src="@drawable/circle" />
+            android:src="@drawable/circle"/>
 
         <View
             android:layout_width="0.5dp"
@@ -27,13 +27,13 @@
         <ImageView
             android:layout_width="10dp"
             android:layout_height="10dp"
-            android:src="@drawable/circle" />
+            android:src="@drawable/circle"/>
 
         <View
             android:id="@+id/view_down"
             android:layout_width="0.5dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/selector_line" />
+            android:background="@drawable/selector_line"/>
     </LinearLayout>
 
     <ScrollView
@@ -41,12 +41,12 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:autoLink="phone"
             android:id="@+id/tv_Async_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
             android:layout_marginTop="15dp"
-            android:textSize="17sp" />
+            android:autoLink="phone"
+            android:textSize="17sp"/>
     </ScrollView>
 </LinearLayout>

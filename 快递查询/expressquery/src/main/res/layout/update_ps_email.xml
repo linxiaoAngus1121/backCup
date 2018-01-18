@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:landptf="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="请输入你注册时候的邮箱"
+        android:inputType="textEmailAddress"
+        />
+
+    <com.my.expressquery.customView.ButtonM
+        android:id="@+id/updte"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="确定"
+        landptf:backColorPress="#737061"
+        landptf:background_color="#9e8781"
+        landptf:fillet="true"
+        landptf:shape="rectangle"/>
+</LinearLayout>
