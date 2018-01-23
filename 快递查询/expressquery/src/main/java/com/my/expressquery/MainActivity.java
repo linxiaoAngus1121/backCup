@@ -1,6 +1,8 @@
 package com.my.expressquery;
 
+import android.content.IntentFilter;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -15,9 +17,7 @@ import com.my.expressquery.fragment.Network_query;
 import com.my.expressquery.fragment.PersonalSetting;
 import com.my.expressquery.fragment.my_press;
 
-/*
-* extend myAppactivity ，因为要用来设置一些全局的事情
-* */
+
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private MainFragment mainFragment;              //第一个
@@ -45,6 +45,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private FragmentManager fragmentManager;
 
+    private NetWorkRecever recever;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         init();
         choiseItem(0);//默认是选中第一个fragment
         Log.i("000", "MainActivity_onCreate");
+
+
     }
 
     @Override
@@ -74,6 +77,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onDestroy() {
         super.onDestroy();
         Log.i("000", "MainActivity_onDestroy");
+        unregisterReceiver(recever);
     }
 
     @Override
@@ -100,6 +104,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
 
     }
+
 
     private void choiseItem(int i) {
         clearStyle();
@@ -209,6 +214,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mFraglay_main_TheDeliveryHasBeenReceived.setOnClickListener(this);
         mFraglay_main_PersonalSetting.setOnClickListener(this);
 
+        recever = new NetWorkRecever();
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(recever, filter);
     }
 
 

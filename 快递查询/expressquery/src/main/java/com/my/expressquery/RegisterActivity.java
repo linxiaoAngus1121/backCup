@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.my.expressquery.customView.CountDownBut;
 import com.my.expressquery.util.Base64Utils;
 import com.my.expressquery.util.LoginAndReisterUtils;
 import com.my.expressquery.util.PhotoUtils;
@@ -28,12 +29,6 @@ import java.io.File;
 import cn.bmob.v3.Bmob;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
-
-/***
- *
- * 头像上上传问题需要解决
- *
- */
 
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -116,12 +111,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.get_code: //获取验证码
+            // TODO: 2018/1/19 //获取验证码,验证码倒计时没实现
+            case R.id.get_code:
                 String phonenumber = mEt_register_phone.getText().toString();
                 if (TextUtils.isEmpty(phonenumber)) {
                     Toast.makeText(RegisterActivity.this, "请输入手机号码", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                //验证码倒计时
+                new CountDownBut(60000, 1000, mBut_register_getcode).start();
                 sendMessage(phonenumber);
                 break;
             case R.id.but_register_register:    //注册按钮

@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 
 /**
  * Created by 123456 on 2017/10/26.
- * 判断是否用网络
+ * 判断是否有网络
  */
 
 public class NetUtils {

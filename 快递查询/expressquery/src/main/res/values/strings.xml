@@ -60,9 +60,8 @@
     <string name="clear">清空</string>
     <string name="enter_old_ps">请输入旧密码</string>
     <string name="enter_new_ps">请输入新密码</string>
-    <string name="返回"><![CDATA[<]]></string>
     <string name="ensure">确定</string>
-    <string name="update_ps">修改密码</string>
+    <string name="update_ps">忘记密码</string>
     <string name="update_email">邮箱方式</string>
     <string name="update_phone">手机方式</string>
 </resources>

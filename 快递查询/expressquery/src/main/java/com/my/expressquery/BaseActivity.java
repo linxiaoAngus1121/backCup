@@ -11,6 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.my.expressquery.util.NetUtils;
@@ -23,7 +24,7 @@ import java.util.List;
 * */
 public class BaseActivity extends AppCompatActivity {
 
-    List<String> permissionList = new ArrayList<>();
+    private List<String> permissionList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +115,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         permissionList.clear();
+        Log.i("000", "执行了ondestroy,,,,,,,,,,,,,,,baseactivity");
         permissionList = null;
     }
 

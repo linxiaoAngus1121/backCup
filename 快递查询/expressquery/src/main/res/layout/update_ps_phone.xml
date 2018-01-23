@@ -2,12 +2,86 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical">
+              android:orientation="horizontal">
 
-    <EditText
-        android:hint="这是手机方式"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/register_border"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/update_ps_phone"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@null"
+                android:hint="@string/phone"
+                android:inputType="number"
+                android:maxLength="11"
+                android:theme="@style/MyEditText"/>
+
+            <Button
+                android:id="@+id/get_code"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/get_code_style"
+                android:text="@string/get_code"
+                android:textColor="@color/colorWhite"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorSilver"/>
+
+        <EditText
+            android:id="@+id/ed_register_yanzhengma"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@null"
+            android:hint="@string/get_code"
+            android:theme="@style/MyEditText"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorSilver"/>
+
+        <EditText
+            android:id="@+id/update_ps_newPs"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@null"
+            android:hint="@string/pass"
+            android:inputType="textPassword"
+            android:theme="@style/MyEditText"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorSilver"/>
+
+
+        <Button
+            android:id="@+id/update_ps_go"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorLightBlue"
+            android:text="@string/register_now"
+            android:textColor="@color/colorWhite"/>
+    </LinearLayout>
 
 
 </LinearLayout>
