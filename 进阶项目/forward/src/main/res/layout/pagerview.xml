@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+    <!--com.jude.rollviewpager.RollPagerView 轮播插件
+       app:rollviewpager_play_delay="2000"  //间隔
+        app:rollviewpager_hint_alpha="100"  //透明度（默认0）
+        app:rollviewpager_hint_gravity="right"//位置
+        app:rollviewpager_hint_paddingLeft="100dp" //左边距
+        app:rollviewpager_hint_paddingRight="10dp"
+        app:rollviewpager_hint_paddingTop="100dp"
+        app:rollviewpager_hint_paddingBottom="100dp"
+    -->
+    <com.jude.rollviewpager.RollPagerView
+        android:id="@+id/roll"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:rollviewpager_hint_gravity="right"
+        app:rollviewpager_play_delay="2000"
+        />
+</LinearLayout>

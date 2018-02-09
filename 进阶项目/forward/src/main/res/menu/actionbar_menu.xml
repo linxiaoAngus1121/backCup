@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item
+        android:id="@+id/first"
+        android:icon="@drawable/back"
+        android:showAsAction="never"
+        android:title="第一"
+        />
+    <item
+        android:id="@+id/second"
+        android:icon="@drawable/back"
+        android:showAsAction="always"
+        android:title="第二"/>
+    <item
+        android:id="@+id/three"
+        android:icon="@drawable/back"
+        android:showAsAction="ifRoom"
+        android:title="第3"/>
+    <item
+        android:id="@+id/four"
+        android:icon="@drawable/back"
+        android:showAsAction="ifRoom"
+        android:title="第4"/>
+    <item
+        android:id="@+id/five"
+        android:icon="@drawable/back"
+        android:showAsAction="ifRoom"
+        android:title="第5"/>
+</menu>
